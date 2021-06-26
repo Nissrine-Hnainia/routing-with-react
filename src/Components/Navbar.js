@@ -1,16 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Nav, Navbar, Button, Form, FormControl} from "react-bootstrap"
+import {Link} from "react-router-dom"
 
-const Navbar = () => {
+const NavBar = () => {
     return (
-        <div>
-            <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/products'>Products</Link></li>
-                <li><Link to='/user'>User</Link></li>
-            </ul>
-        </div>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav className="mr-auto">
+            <Link to="/"> Home </Link>
+            <Link to="/products">Products</Link>
+            </Nav>
+            <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-info">Search</Button>
+            </Form>
+        </Navbar>
     )
 }
 
-export default Navbar
+export default NavBar

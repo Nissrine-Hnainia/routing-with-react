@@ -1,24 +1,29 @@
-import { Route, Switch } from 'react-router';
 import './App.css';
-import Home from './Components/Home';
-import Login from './Components/Login';
-import Navbar from './Components/Navbar';
-import Products from './Components/Products';
-import {useState} from "react"
-import User from './Components/User';
-import PrivateRoute from "./Components/PrivateRoute"
+import Home from './Pages/Home';
+import Products from './Pages/Products';
+import NavBar from './Components/NavBar';
+import { Route, Switch } from 'react-router-dom';
+import Books from './Pages/Books';
+import AudioBooks from './Pages/AudioBooks';
 
 function App() {
-  const [auth, setAuth] = useState(false)
-  const handleAuth = (el) => setAuth(true)
   return (
     <div className="App">
-      <Navbar />
+      <NavBar />
       <Switch>
       <Route exact path="/" component={Home}/>
-      <Route path="/products" component={Products}/>
-      <Route path="/login" render={(props) => <Login {...props} authentication={handleAuth}/>}/>
-      <PrivateRoute path="/user" component={User} isAuth={auth}/>
+      <Route exact path="/products" component={Products}/>
+      {/* recommanded */}
+      {/* <Route path="/products/books" component={Books}/> */}
+
+      {/* not recommanded */}
+      {/* <Route path="/products/books">
+        <Books />
+      </Route> */}
+
+      {/* recommanded */}
+      <Route path="/products/books" render={  (props) => <Books {...props} />  }  />
+      <Route path="/products/audio-books/" component={AudioBooks}/>
       </Switch>
     </div>
   );

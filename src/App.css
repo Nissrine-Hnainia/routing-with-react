@@ -4,3 +4,9 @@
 li{
   list-style-type: none;
 }
+.cards{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+}
